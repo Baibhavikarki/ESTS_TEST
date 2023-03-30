@@ -76,9 +76,33 @@ function addLocation(location) {
   return location;
 }
 
+
+function changePassword(userId, oldPassword, newPassword) {
+  // Check if the old password matches the user's current password
+  if (oldPassword !== getUserPassword(userId)) {
+    return false;
+  }
+
+  // Change the user's password to the new password
+  setUserPassword(userId, newPassword);
+
+  return true;
+}
+
+// Dummy functions to simulate a database or storage mechanism
+function getUserPassword(userId) {
+  return 'password123'; // Returns a hardcoded password for demo purposes
+}
+
+function setUserPassword(userId, newPassword) {
+  // Code to set the user's password in the database or storage mechanism would go here
+}
+
+
 module.exports = {
   addAnimal,
   addLocation,
   checkUsernameExists,
-  isValidEmail
+  isValidEmail,
+  changePassword
 };
